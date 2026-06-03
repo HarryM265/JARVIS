@@ -1,15 +1,17 @@
 {
-  "personal": [
-    "My name is Harry"
-  ],
-  "education": [
-    "Harry studies Mechatronic Engineering at Curtin University"
-  ],
-  "work": [
-     "Harry works as a Senior Hose Technician"
-  ],
-  "projects": [],
-  "preferences": [
-    "Prefers practical explanations"
-  ]
+    "personal": [
+        "My name is Harry"
+    ],
+    "education": [
+        "Harry studies Mechatronic Engineering at Curtin University"
+    ],
+    "work": [
+        "Harry works as a Senior Hose Technician"
+    ],
+    "projects": [
+        "Building a Jarvis AI assistant"
+    ],
+    "preferences": [
+        "Prefers practical explanations"
+    ]
 }
