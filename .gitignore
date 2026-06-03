@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+.env
+
+memory/user_memory_backup.json
+
+conversations/
+
+.vscode/
