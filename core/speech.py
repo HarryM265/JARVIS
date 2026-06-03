@@ -24,7 +24,6 @@ def speak(text):
 
     print(f"\nJARVIS: {text}\n")
 
-    # Create unique temporary mp3
     temp_file = tempfile.NamedTemporaryFile(
         suffix=".mp3",
         delete=False
@@ -34,39 +33,29 @@ def speak(text):
 
     temp_file.close()
 
-    try:
-
-        asyncio.run(
-            _generate_speech(
-                text,
-                filename
-            )
-        )
-
-        pygame.mixer.music.load(
+    asyncio.run(
+        _generate_speech(
+            text,
             filename
         )
+    )
 
-        pygame.mixer.music.play()
+    # Give Windows time to release the file
+    time.sleep(0.25)
 
-        while pygame.mixer.music.get_busy():
+    pygame.mixer.music.load(
+        filename
+    )
 
-            time.sleep(0.1)
+    pygame.mixer.music.play()
 
-    finally:
+    while pygame.mixer.music.get_busy():
 
-        try:
+        time.sleep(0.1)
 
-            pygame.mixer.music.unload()
+    pygame.mixer.music.unload()
 
-        except:
-
-            pass
-
-        try:
-
-            os.remove(filename)
-
-        except:
-
-            pass
+    try:
+        os.remove(filename)
+    except:
+        pass
