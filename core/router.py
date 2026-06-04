@@ -1,50 +1,9 @@
 from core.commands import handle_command
 from core.brain import ask_jarvis
+from core.classifier import classify_input
 
-def is_engineering_question(text):
+from config.settings import DEBUG
 
-    engineering_keywords = [
-
-        "equation",
-        "theorem",
-        "integral",
-        "differentiate",
-        "derivative",
-        "laplace",
-        "matrix",
-        "eigenvalue",
-        "complex",
-        "phasor",
-        "circuit",
-        "voltage",
-        "current",
-        "resistance",
-        "stress",
-        "strain",
-        "moment",
-        "torque",
-        "fluid",
-        "mechanics",
-        "thermodynamics",
-        "physics",
-        "calculus",
-        "math",
-        "mathematics",
-        "solve",
-        "find the",
-        "prove",
-        "control system",
-        "pid",
-        "transfer function"
-
-    ]
-
-    text = text.lower()
-
-    return any(
-        keyword in text
-        for keyword in engineering_keywords
-    )
 
 def route(user_input):
 
@@ -55,17 +14,49 @@ def route(user_input):
     if is_command:
         return response
 
-    if is_engineering_question(
+    result = classify_input(
         user_input
-    ):
+    )
+
+    classification = (
+        result["classification"]
+    )
+
+    confidence = (
+        result["confidence"]
+    )
+
+    if DEBUG:
 
         print(
-            "[ENGINEERING MODE]"
+            f"[{classification}] ({confidence}%)"
         )
+
+        if confidence < 60:
+
+            print(
+                "[LOW CONFIDENCE]"
+            )
+
+    if classification == "MATH_QUESTION":
+
+        if DEBUG:
+
+            print(
+                "[ENGINEERING MODE]"
+            )
 
         return ask_jarvis(
             user_input,
             engineering_mode=True
+        )
+
+    if classification == "DIFFICULT_QUESTION":
+
+        return (
+            "Sir, this appears to be a complex question. "
+            "Would you like me to use advanced reasoning mode? "
+            "(This may take longer.)"
         )
 
     return ask_jarvis(

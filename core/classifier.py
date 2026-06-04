@@ -25,6 +25,23 @@ Return ONLY valid JSON:
 
 Confidence must be between 0 and 100.
 
+COMMAND
+=
+User wants Jarvis to perform an action immediately.
+
+Examples:
+open chrome
+shutdown computer
+remember this
+
+NOT:
+design
+explain
+analyse
+create
+plan
+solve
+
 Examples:
 
 Input:

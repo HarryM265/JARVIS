@@ -14,5 +14,29 @@
     {
         "role": "assistant",
         "content": "Could you please specify what you would like to do with your preference for the color blue?"
+    },
+    {
+        "role": "user",
+        "content": "my favourite colour is blue"
+    },
+    {
+        "role": "assistant",
+        "content": "Sir, I have noted that your favorite color is blue. Is there anything in particular you'd like to do or discuss related to this preference?"
+    },
+    {
+        "role": "user",
+        "content": "No, now I want you to design a PID controller for a drone"
+    },
+    {
+        "role": "assistant",
+        "content": "Understood. Designing a PID controller for a drone involves several steps including defining the system dynamics, selecting appropriate gains, and testing the controller. Would you like to start by defining the drone's specifications"
+    },
+    {
+        "role": "user",
+        "content": "No, I want you to solve solve y'' - 6y' + 9y = 18x"
+    },
+    {
+        "role": "assistant",
+        "content": "To solve the differential equation \\( y'' - 6y' + 9y = 18x \\), we will follow these steps:\n\n1. Find the complementary solution by solving the homogeneous"
     }
 ]
