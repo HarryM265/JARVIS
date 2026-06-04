@@ -2,6 +2,8 @@ from core.commands import handle_command
 from core.brain import ask_jarvis
 from core.classifier import classify_input
 from core.memory_extractor import extract_memory
+from core.memory_enricher import enrich_memory
+from core.memory import save_memory
 
 from config.settings import DEBUG
 
@@ -50,11 +52,40 @@ def route(user_input):
                 f"[MEMORY] {memory}"
             )
 
-        if memory["category"] != "none":
+        category = memory.get(
+            "category",
+            "none"
+        )
+
+        memory_text = memory.get(
+            "memory",
+            ""
+        )
+
+        if category != "none":
+
+            memory_text = enrich_memory(
+                memory_text
+            )
+
+            saved = save_memory(
+                category,
+                memory_text
+            )
+
+            if DEBUG:
+
+                print(
+                    f"[MEMORY SAVED] {saved}"
+                )
 
             return (
                 "I'll remember that, sir."
             )
+
+        return (
+            "Understood, sir."
+        )
 
     if classification == "MATH_QUESTION":
 

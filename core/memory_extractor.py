@@ -25,6 +25,15 @@ preferences
 Examples:
 
 Input:
+"I have a fluid mechanics exam next Tuesday"
+
+Output:
+{
+    "category":"education",
+    "memory":"Fluid Mechanics exam next Tuesday"
+}
+
+Input:
 "My favourite colour is blue"
 
 Output:
@@ -34,21 +43,24 @@ Output:
 }
 
 Input:
-"I work at Bunnings"
+"I work as a Senior Hose Technician"
 
 Output:
 {
     "category":"work",
-    "memory":"Works at Bunnings"
+    "memory":"Senior Hose Technician"
 }
 
-Input:
-"I'm studying Mechatronic Engineering"
+Only extract information about the user.
 
-Output:
+Do not extract facts about the world.
+
+"The sky is blue"
+should return:
+
 {
-    "category":"education",
-    "memory":"Studies Mechatronic Engineering"
+    "category":"none",
+    "memory":""
 }
 
 If nothing should be remembered:

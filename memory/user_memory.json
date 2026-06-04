@@ -1,6 +1,8 @@
 {
     "personal": [
-        "My name is Harry"
+        "My name is Harry",
+        "Cat named Oswald",
+        "Store it as personal information"
     ],
     "education": [
         "Harry studies Mechatronic Engineering at Curtin University"
@@ -12,6 +14,7 @@
         "Building a Jarvis AI assistant"
     ],
     "preferences": [
-        "Prefers practical explanations"
+        "Prefers practical explanations",
+        "Favourite colour is green"
     ]
 }

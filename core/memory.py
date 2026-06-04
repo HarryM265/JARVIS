@@ -31,6 +31,46 @@ def get_all_memories():
 
     return load_memory()
 
+def save_all_memories(memories):
+
+    with open(
+        MEMORY_FILE,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            memories,
+            file,
+            indent=4
+        )
+
+
+def save_memory(
+    category,
+    memory
+):
+
+    memories = get_all_memories()
+
+    if category not in memories:
+
+        memories[category] = []
+
+    if memory not in memories[category]:
+
+        memories[category].append(
+            memory
+        )
+
+        save_all_memories(
+            memories
+        )
+
+        return True
+
+    return False
+
 CONTEXT_FILE = "memory/conversation_context.json"
 
 def load_context():

@@ -1,14 +1,6 @@
 [
     {
         "role": "user",
-        "content": "my favourite colour is blue"
-    },
-    {
-        "role": "assistant",
-        "content": "Sir, I remember that your favorite color is blue. Is there anything specific you'd like to do with this preference or any related questions?"
-    },
-    {
-        "role": "user",
         "content": "yes"
     },
     {
@@ -54,5 +46,37 @@
     {
         "role": "assistant",
         "content": "Indeed, the sky often appears blue due to a phenomenon called Rayleigh scattering. Would you like some information on this or help with a related problem?"
+    },
+    {
+        "role": "user",
+        "content": "how are you today"
+    },
+    {
+        "role": "assistant",
+        "content": "I am functioning optimally, sir. How are you preparing for your exam next Tuesday?"
+    },
+    {
+        "role": "user",
+        "content": "what is demoivre's theorem"
+    },
+    {
+        "role": "assistant",
+        "content": "De Moivre's Theorem states that for any real number \\( \\theta \\) and integer \\( n \\), \\((\\cos \\theta + i \\sin \\theta)^n = \\cos"
+    },
+    {
+        "role": "user",
+        "content": "Please remember my exam next Tuesday"
+    },
+    {
+        "role": "assistant",
+        "content": "I have noted your exam next Tuesday. Is there anything specific you'd like to review or prepare for related to your fluid mechanics exam, sir?"
+    },
+    {
+        "role": "user",
+        "content": "You've stored the wrong information, please store the exam"
+    },
+    {
+        "role": "assistant",
+        "content": "Understood, sir. I will remember that you have an exam next Tuesday. How can I assist with your preparation today?"
     }
 ]

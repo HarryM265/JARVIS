@@ -9,7 +9,7 @@ The classification MUST be exactly one of:
 
 COMMAND
 PERSONAL_INFO
-GENERAL_INFO
+PERSONAL_QUESTION
 GENERAL_QUESTION
 MATH_QUESTION
 DIFFICULT_QUESTION
@@ -25,6 +25,18 @@ Return ONLY valid JSON:
 
 Confidence must be between 0 and 100.
 
+MATH_QUESTION
+=
+Mathematical expressions or related mathematical questions.
+
+Examples:
+Solve y'' - 6y' + 9y = 18x
+Integrate x^2 sin(x) dx
+Derive the formula for the area of a circle"
+What is De Moivre's theorem?
+What is Hooke's Law?
+Explain Kirchhoff's Laws.
+
 COMMAND
 =
 User wants Jarvis to perform an action immediately.
@@ -35,6 +47,7 @@ shutdown computer
 remember this
 
 NOT:
+I want you to remember...
 design
 explain
 analyse
@@ -42,7 +55,18 @@ create
 plan
 solve
 
+PERSONAL_QUESTION
+=
+Questions about the user.
+
 Examples:
+
+"What is my favourite colour?"
+"What do I study?"
+"What is my cat's name?"
+"What do you know about me?"
+
+Typical examples of questions that a user might ask:
 
 Input:
 "My favourite colour is blue"
