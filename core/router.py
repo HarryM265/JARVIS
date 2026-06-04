@@ -1,6 +1,7 @@
 from core.commands import handle_command
 from core.brain import ask_jarvis
 from core.classifier import classify_input
+from core.memory_extractor import extract_memory
 
 from config.settings import DEBUG
 
@@ -36,6 +37,23 @@ def route(user_input):
 
             print(
                 "[LOW CONFIDENCE]"
+            )
+    if classification == "PERSONAL_INFO":
+
+        memory = extract_memory(
+            user_input
+        )
+
+        if DEBUG:
+
+            print(
+                f"[MEMORY] {memory}"
+            )
+
+        if memory["category"] != "none":
+
+            return (
+                "I'll remember that, sir."
             )
 
     if classification == "MATH_QUESTION":

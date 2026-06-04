@@ -38,5 +38,21 @@
     {
         "role": "assistant",
         "content": "To solve the differential equation \\( y'' - 6y' + 9y = 18x \\), we will follow these steps:\n\n1. Find the complementary solution by solving the homogeneous"
+    },
+    {
+        "role": "user",
+        "content": "I have a fluid mechanics exam next Tuesday"
+    },
+    {
+        "role": "assistant",
+        "content": "I understand, sir. It's important to prepare for your exam. Have you covered any specific topics or types of problems recently that you'd like to review?"
+    },
+    {
+        "role": "user",
+        "content": "The sky is blue"
+    },
+    {
+        "role": "assistant",
+        "content": "Indeed, the sky often appears blue due to a phenomenon called Rayleigh scattering. Would you like some information on this or help with a related problem?"
     }
 ]
