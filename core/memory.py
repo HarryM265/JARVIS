@@ -30,3 +30,34 @@ def get_memories(category):
 def get_all_memories():
 
     return load_memory()
+
+CONTEXT_FILE = "memory/conversation_context.json"
+
+def load_context():
+
+    try:
+
+        with open(
+            CONTEXT_FILE,
+            "r"
+        ) as file:
+
+            return json.load(file)
+
+    except:
+
+        return []
+
+
+def save_context(context):
+
+    with open(
+        CONTEXT_FILE,
+        "w"
+    ) as file:
+
+        json.dump(
+            context,
+            file,
+            indent=4
+        )

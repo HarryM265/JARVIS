@@ -5,7 +5,12 @@ from core.personality import (
     load_personality,
     load_engineering_personality
 )
-from core.memory import get_all_memories
+
+from core.memory import (
+    get_all_memories,
+    load_context,
+    save_context
+)
 
 
 def ask_jarvis(
@@ -47,25 +52,34 @@ Rules:
 - Do not repeat information unnecessarily.
 """
 
+    # Load recent conversation history
+    conversation = load_context()
+
+    messages = [
+        {
+            "role": "system",
+            "content": system_prompt
+        }
+    ]
+
+    messages.extend(conversation)
+
+    messages.append(
+        {
+            "role": "user",
+            "content": user_input
+        }
+    )
+
     start = time.time()
 
     response = ollama.chat(
         model="qwen2.5:7b",
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt
-            },
-            {
-                "role": "user",
-                "content": user_input
-            }
-        ],
+        messages=messages,
         options={
             "temperature": 0.3,
             "num_predict": 40
-        },
-        think = False
+        }
     )
 
     elapsed = time.time() - start
@@ -74,4 +88,28 @@ Rules:
         f"Response time: {elapsed:.2f}s"
     )
 
-    return response["message"]["content"]
+    response_text = response["message"]["content"]
+
+    # Save conversation
+    conversation.append(
+        {
+            "role": "user",
+            "content": user_input
+        }
+    )
+
+    conversation.append(
+        {
+            "role": "assistant",
+            "content": response_text
+        }
+    )
+
+    # Keep only last 20 messages
+    conversation = conversation[-20:]
+
+    save_context(
+        conversation
+    )
+
+    return response_text
